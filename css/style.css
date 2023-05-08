@@ -1,0 +1,413 @@
+/* General */
+* {
+  box-sizing: border-box;
+}
+
+html, body{
+  margin: 0px;
+  width: 100%;
+  overflow-x: hidden;
+  background-color: #fff;
+  color: #333;
+}
+
+/* Equation Palette */
+#equation-hover {
+  width: 80% !important;
+  position: fixed;
+  top: 0;
+  padding: 20px;
+  background-color: grey;
+  z-index: 3;
+}
+
+#eqcop {
+  visibility: hidden;
+}
+
+.matheq {
+  background-color: rgb(0, 155, 255) !important;
+}
+
+.physeq {
+  background-color: #563D7C !important;
+}
+
+.chemeq {
+  background-color: rgb(84, 221, 91) !important;
+}
+
+.close-icon {
+  background-color: red !important;
+}
+
+#equation-hover button {
+  height: 40px !important;
+  width: 40px !important;
+  padding: 0;
+  margin: 5px;
+}
+.equation-toggler {
+  display: none !important;
+}
+
+/* Page and Paper */
+.page{
+  padding: 10px;
+  position:relative;
+  background: linear-gradient(to right,#fff, #fff);
+  padding: 0px;
+  border: 1px solid #ccc;
+  top: 0px;
+  margin:0px 8px 0px 0px;
+  transform: rotateZ(0deg);
+  width: 500px;
+  display: inline-block;
+  height: 600px;
+  box-sizing: border-box;
+}
+
+.paper{
+  background-image: linear-gradient(transparent 0.05em, transparent 0.1em);
+  background-color: unset !important;
+  line-height: 1.5em;
+  background-size: 100% 1.5em;
+  padding: unset;
+}
+
+.paper-lined {
+  background-image: linear-gradient(#999 0.05em, transparent 0.1em);
+  background-size: 100% 1.5em;
+  line-height: 1.5em;
+  background-color: unset !important;
+  padding: unset;
+}
+
+.textarea{
+  background-color: #fff;
+  height: 100%;
+  top: 0;
+  left:0;
+  outline:none;
+  font-family: 'Homemade Apple', cursive;
+  color: #000F55;
+  padding-top: 0px;
+  line-height: 1.5em;
+  box-sizing: border-box;
+  word-spacing: 3px;
+  position: relative;
+}
+
+u {
+  text-decoration: none !important;
+}
+
+.overlay{
+  position: absolute;
+  top:0;left:0;
+  height: 100%;
+  width: 100%;
+  display: none;
+  background-image: linear-gradient(10deg, #0008, #0000);
+}
+
+.page:not(.margined-page){
+  padding: 15px;
+}
+
+.page:not(.margined-page) .paper-content{
+  padding: 0px;
+}
+
+/* Margins */
+.margined-page{
+  width: 560px;
+  height: 700px;
+  overflow: hidden;
+}
+
+.paper-margin-left-line{
+  display: none;
+}
+
+.paper-margin-top-line{
+  display: none;
+}
+
+.margined-page .paper-margin-left-line{
+  display: inline-block;
+  width: 80px;
+  border-right: 2px solid rgb(255, 140, 159);
+  height: 200%;
+  top: -100%;
+  position: relative;
+}
+
+.margined-page .paper-margin-top-line{
+  display: block;
+  color: #000F55;
+  font-family: 'Homemade Apple', cursive;
+  width: 100%;
+  border-bottom: 2px solid rgb(255, 140, 159);
+  height: 80px;
+}
+
+#date-container{
+  display: inline-block;
+  visibility: hidden;
+  padding: 0;
+  margin-top: 25px;
+  margin-left: 10px;
+  font-size: 13px;
+}
+
+.margined-page .paper-content{
+  position: relative;
+  top: 0px;
+  left: 0px;
+  flex: 1;
+  padding-left: 10px;
+  padding-right: 5px;
+  display: inline-block;
+  top: 0px;
+}
+
+.margined-page .textarea{
+  height: calc(100% - 80px);
+}
+
+.row{
+  display: flex;
+}
+
+.col{
+  flex: 1;
+}
+.col a {
+  color: rgb(0, 153, 255);
+}
+.col a:hover {
+  color: #2288aa;
+}
+
+/* Wrapper */
+.form-container{
+  padding-left: 100px;
+  padding-right: 100px;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-y: hidden;
+}
+
+.form-container label{
+  font-weight: bold;
+}
+
+.form-container input, .form-container select{
+  display: block;
+  width: 100%;
+  background-color: #fff;
+  border: none;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.form-container input[type="number"] {
+  display: inline-block;
+  width: unset;
+}
+
+.form-container button{
+  border: none;
+  background-color: rgb(0, 153, 255);
+  padding: 10px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Switch */
+.switch-toggle {
+	position: relative;
+  display: block;
+  margin-top: 6px;
+  cursor: pointer;
+	width: 40px;
+	height: 20px;
+	border-radius: 25px;
+	background-color: #eee;
+}
+
+.switch-toggle input {
+	display: none;
+}
+
+.switch-toggle div {
+	position: absolute;
+	border-radius: 50%;
+	background-color: rgb(173, 240, 161);
+	transition: .1s ease;
+}
+
+.switch-toggle input:checked + div {
+	left: 50%;
+	background-color: #28a745;
+}
+
+.switch-toggle.rect {
+	border-radius: 0;
+}
+
+.switch-toggle.rect div {
+	border-radius: 0;
+}
+
+.switch-toggle.inner div {
+	width: 18px;
+	height: 18px;
+	top: 1px;
+	left: 1px;
+	
+}
+
+.switch-toggle.outer div {
+	width: 23px;
+	height: 23px;
+	top: -1.5px;
+	left: -1.5px;
+	
+}
+
+/* Select */
+#ink-color option {
+  background-color: #EDEDED;
+  font-weight: bolder;
+}
+#ink-color option:checked {
+  color: orange;
+}
+
+/* Guide */
+.guide a {
+  color: rgb(0, 153, 255);
+}
+.guide a:hover {
+  color: #2288aa;
+}
+
+/* Dividers */
+hr {
+  border-style: solid;
+  background-color: rgb(0, 0, 0);
+  border-color: rgb(0, 0, 0);
+}
+
+/* Download Button */
+.download-button{
+  display: inline-block;
+  text-decoration: none;
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 10pt;
+}
+
+.pdf-button  {
+  cursor: pointer;
+  display: inline-block;
+  text-decoration: none;
+  background-color: #28a745;
+  color: #fff;
+  padding: 10px 15px;
+  font-weight: bold;
+  font-size: 10pt;
+}
+
+/* Responsive */
+.disabled{
+  cursor: not-allowed !important;
+  opacity: .5;
+}
+
+.hide-pc{
+  display: none;
+}
+
+.hide-mobile{
+  display: initial;
+}
+
+#orrer {
+  color: black;
+}
+#orrerrep {
+  color: black;
+}
+
+@media (max-width: 768px){
+  .row.responsive-row{display: block;}
+  .output{
+    margin-top: 20px;
+  }
+  .output-grid .col:first-child{
+    overflow-x: scroll;
+  }
+  img{
+    width: 100%;
+  }
+  .hide-pc{
+    display: initial;
+  }
+  .form-container{
+    padding: 40px 10px;
+  }
+  .hide-mobile{
+    display: none;
+  }
+  #orrer {
+    display: none;
+  }
+  #orrerrep {
+    display: block;
+  }
+  #equation-hover {
+    padding: 10px;
+  }
+  #equation-hover button {
+    height: 35px !important;
+    width: 35px !important;
+    margin: 3px;
+  }
+}
+@media (min-width: 768px) {
+  #orrerrep {
+    display: none;
+  }
+}
+
+
+/* Footer */
+footer {
+  text-align: center;
+  background-color: #222;
+  color: #ddd;
+  padding: 24px 30px;
+  font-size: 12px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+footer a {
+  text-decoration: none;
+  color: #bbb;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+}
